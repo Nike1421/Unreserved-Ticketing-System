@@ -11,3 +11,9 @@ def login(request):
 
 def register(request):
     return render(request, 'register.html')
+
+def profile(request):
+    return render(request, 'users-profile.html')
+
+def schedule(request):
+    return render(request, 'schedule.html')
