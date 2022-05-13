@@ -999,7 +999,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px 15px;
 }
 .contact .php-email-form button[type=submit] {
-  background: #4154f1;
+  background: #2c3d68;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -1108,7 +1108,7 @@ body {
 .form {
   padding: 35px 0;
   border: 1px solid #aaa;
-  background: #eee;
+  /* background: #eee; */
   min-width: 100%;
   margin: 0 auto;
 }
@@ -1166,16 +1166,16 @@ input[type=text] {
 }
 
 h1 {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 2em;
   padding: 10px 10px;
   text-align: center;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
   color: #131313;
-  background-color: #e7e5e4;
+  /* background-color: #e7e5e4; */
   letter-spacing: .07em;
-  text-shadow: 1px -1px 0 #767676;
+  /* text-shadow: 1px -1px 0 #767676; */
   margin-top: 10px;
 }
 

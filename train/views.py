@@ -17,3 +17,6 @@ def profile(request):
 
 def schedule(request):
     return render(request, 'schedule.html')
+
+def quickroutes(request):
+    return render(request, 'quickroutes.html')
