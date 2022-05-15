@@ -33,3 +33,18 @@ def schedule(request):
 
 def quickroutes(request):
     return render(request, 'quickroutes.html')
+
+def bookticket(request):
+    return render(request, 'bookticket.html')
+
+def payment(request):
+    return render(request, 'payment.html')
+
+def fare(request):
+    return render(request, 'fare.html')
+
+def otp(request):
+    return render(request, 'otp.html')
+
+def ticket(request):
+    return render(request, 'ticket.html')

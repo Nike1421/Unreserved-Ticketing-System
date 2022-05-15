@@ -25,10 +25,10 @@
   <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/simple-datatables/schedule.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/schedule.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.2.2
@@ -252,78 +252,72 @@
 
   <main id="main" class="main">
 
-    <section class="section-profile">
+    <!-- <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div> -->
+    <!-- End Page Title -->
 
-      <div class="card">
-        <div class="card-body pt-3">
-          <div id="page1">
-            <h1>Check Train Schedule</h1>
-            <div class="index row">
-      
-              <div class="field col-sm-6">
-                <label for="from">From :</label>
-                <input id="from" type="text" />
-              </div>
-      
-              <div class="field col-sm-6">
-                <label for="to">To :</label>
-                <input id="to" type="text" />
-              </div>
+    <section class="section dashboard">
+      <div class="row">
 
-              <div class="field col-sm-6">
-                <label for="route">Route :</label>
-                <select name="route" id="route">
-                  <option value="select">Select</option>
-                  <option value="all">All</option>
-                  <option value="western">Western</option>
-                  <option value="central">Central</option>
-                  <option value="harbour">Harbour</option>
-                </select>
-              </div>
+        <!-- Left side columns -->
+        <div class="col-lg">
+          <div class="row">
+
+            <!-- Reports -->
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 style="font-size: 30px;" class="card-title">CHECK TRAIN SCHEDULE</span></h5>
+                  <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-12">
+                      <label style="margin-top: 10px;" for="yourName" class="form-label">Source</label>
+                      <input type="text" name="name" class="form-control" id="yourName" required>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourUsername" class="form-label">Destination</label>
+                      <div class="input-group has-validation">
+                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label" for="route">Route :</label>
+                      <select class="form-select" name="route" id="route">
+                        <option value="" selected disabled>--Select--</option>
+                        <option value="all">All</option>
+                        <option value="western">Western</option>
+                        <option value="central">Central</option>
+                        <option value="harbour">Harbour</option>
+                      </select>
+                    </div>
+
+                    <center>
+                      <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Search for Trains</button>
+                      </div>
+                    </center>
+
     
-              <div class="clearfix visible-xs"></div>
-              <div class="field col-sm-6 col-centered ">
-                <div id="search" class="btn btn-primary" style="background-color: #2c3d68; border: none;">Search for Trains</div>
+                  </form>
+                </div>
+
               </div>
-            </div>
+            </div><!-- End Reports -->
+
           </div>
-        </div>
+        </div><!-- End Left side columns -->
+
+
+
       </div>
-
-      <!-- <div class="index container animated zoomIn">
-
-        <div class="form contactform">
-          <div id="page1">
-            <h1>Check Train Schedule</h1>
-            <div class="index row">
-      
-              <div class="field col-sm-6">
-                <label for="from">From :</label>
-                <input id="from" type="text" />
-              </div>
-      
-              <div class="field col-sm-6">
-                <label for="to">To :</label>
-                <input id="to" type="text" />
-              </div>
-
-              <div class="field col-sm-6">
-                <label for="route">Route :</label>
-                <select name="route" id="route">
-                  <option value="select">Select</option>
-                  <option value="all">All</option>
-                  <option value="western">Western</option>
-                  <option value="central">Central</option>
-                  <option value="harbour">Harbour</option>
-                </select>
-              </div>
-    
-              <div class="clearfix visible-xs"></div>
-              <div class="field col-sm-6 col-centered ">
-                <div id="search" class="btn btn-primary" style="background-color: #2c3d68; border: none;">Search for Trains</div>
-              </div>
-            </div>
-          </div> -->
     </section>
 
   </main><!-- End #main -->
@@ -349,7 +343,6 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-  <script src="{% static 'assets/js/schedule.js' %}"></script>
 
 </body>
 
