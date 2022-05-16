@@ -13,5 +13,6 @@ urlpatterns = [
     path('payment/', views.payment, name='payment'),
     path('fare/', views.fare, name='fare'),
     path('otp/', views.otp, name='otp'),
-    path('ticket/', views.ticket, name='ticket')
+    path('ticket/', views.ticket, name='ticket'),
+    path('bookedticket/', views.bookedticket, name='bookedticket')
 ]
