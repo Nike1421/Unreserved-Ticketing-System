@@ -74,3 +74,6 @@ def otp(request):
 
 def ticket(request):
     return render(request, 'ticket.html')
+
+def bookedticket(request):
+    return render(request, 'bookedticket.html')
