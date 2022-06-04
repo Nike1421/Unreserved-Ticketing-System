@@ -10,6 +10,11 @@
 {% endblock %}
 
 {%block content%}
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
 <main id="" class="main ml-0">
 
 

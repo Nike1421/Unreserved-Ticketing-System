@@ -10,7 +10,7 @@ from .forms import RegisterUserForm, UserAuthenticationForm
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'train/index.html')
      
 def loginUser(request):
     if request.method == 'POST':
@@ -52,28 +52,28 @@ def registerUser(request):
 
 
 def profile(request):
-    return render(request, 'users-profile.html')
+    return render(request, 'train/users-profile.html')
 
 def schedule(request):
-    return render(request, 'schedule.html')
+    return render(request, 'train/schedule.html')
 
 def quickroutes(request):
-    return render(request, 'quickroutes.html')
+    return render(request, 'train/quickroutes.html')
 
 def bookticket(request):
-    return render(request, 'bookticket.html')
+    return render(request, 'train/bookticket.html')
 
 def payment(request):
-    return render(request, 'payment.html')
+    return render(request, 'train/payment.html')
 
 def fare(request):
-    return render(request, 'fare.html')
+    return render(request, 'train/fare.html')
 
 def otp(request):
-    return render(request, 'otp.html')
+    return render(request, 'train/otp.html')
 
 def ticket(request):
-    return render(request, 'ticket.html')
+    return render(request, 'train/ticket.html')
 
 def bookedticket(request):
-    return render(request, 'bookedticket.html')
+    return render(request, 'train/bookedticket.html')
