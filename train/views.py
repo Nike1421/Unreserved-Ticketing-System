@@ -3,8 +3,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
+from .models import Ticket, Account
 
-from .forms import RegisterUserForm, UserAuthenticationForm
+from .forms import RegisterUserForm, UserAuthenticationForm, TicketBookingForm
 
 
 # Create your views here.
@@ -44,8 +45,9 @@ def registerUser(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            print("User Logged In")
             return redirect('profile')
+        else:
+            return render(request, 'train/register.html', {'form': form})
     else:
         form = RegisterUserForm()
         return render(request, 'train/register.html', {'form': form})
@@ -61,7 +63,39 @@ def quickroutes(request):
     return render(request, 'train/quickroutes.html')
 
 def bookticket(request):
-    return render(request, 'train/bookticket.html')
+    if request.method == 'POST':
+        form = TicketBookingForm(request.POST)
+        if form.is_valid():
+            ticket_source = form.cleaned_data.get('ticket_source')
+            ticket_destination = form.cleaned_data.get('ticket_destination')
+            ticket_type = form.cleaned_data.get('ticket_type')
+            ticket_class = form.cleaned_data.get('ticket_class')
+            ticket_train = form.cleaned_data.get('ticket_train')
+            ticket_payment = form.cleaned_data.get('ticket_payment')
+
+            new_ticket = {
+                'ticket_source' : ticket_source,
+                'ticket_destination' : ticket_destination,
+                'ticket_type' : ticket_type,
+                'ticket_class' : ticket_class,
+                'ticket_train' : ticket_train,
+                'ticket_payment' : ticket_payment,
+                'ticket_holder' : request.user
+            }
+            
+            # print(ticket_source + ticket_destination + ticket_type + ticket_class + ticket_payment + ticket_train)
+
+
+            messages.success(request, f"Ticket is Successfully Booked")
+            return render(request, 'payment', {'ticket': new_ticket})
+            # return redirect('profile')
+        else:
+            messages.error(request, f"Form Error")
+    form = TicketBookingForm()
+    return render(request, 'train/bookticket.html', {'form': form})
+
+def book():
+    pass
 
 def payment(request):
     return render(request, 'train/payment.html')

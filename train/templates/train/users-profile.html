@@ -4,73 +4,14 @@
 
 {% block content %}
 
-
-
-
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'index' %}">
-          <i class="bi bi-grid"></i>
-          <span>Home</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-
-
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'profile' %}">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-credit-card-2-back"></i>
-          <span>Smart Card</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-question-lg"></i>
-          <span>Help & FAQ</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>About</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-translate"></i>
-          <span>Change Language</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-left"></i>
-          <span>Sign Out</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-    </ul>
-
-  </aside><!-- End Sidebar-->
-
-
   <main id="main" class="main">
-
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
     <div class="pagetitle">
       <h1>Profile</h1>
       <nav>
@@ -113,37 +54,34 @@
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                  <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                  <div class="col-lg-9 col-md-8">{{user.name}}</div>
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-3 col-md-4 label">Company</div>
-                  <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+                  <div class="col-lg-3 col-md-4 label">Date Joined</div>
+                  <div class="col-lg-9 col-md-8">{{user.date_joined}}</div>
                 </div>
 
-                <div class="row">
-                  <div class="col-lg-3 col-md-4 label">Job</div>
-                  <div class="col-lg-9 col-md-8">Web Designer</div>
-                </div>
+                
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">City</div>
-                  <div class="col-lg-9 col-md-8">Mumbai</div>
+                  <div class="col-lg-9 col-md-8">{{user.city}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Address</div>
-                  <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                  <div class="col-lg-9 col-md-8">{{user.address}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Phone</div>
-                  <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                  <div class="col-lg-9 col-md-8">{{user.username}}</div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 col-md-4 label">Email</div>
-                  <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                  <div class="col-lg-9 col-md-8">{{user.email}}</div>
                 </div>
 
               </div>
