@@ -71,59 +71,52 @@ class UserAuthenticationForm(AuthenticationForm):
                     'id': 'yourUsername'
                 }
             ),
-            
+
         }
 
+
 class TicketBookingForm(forms.ModelForm):
-    ticket_source = forms.ChoiceField(label='Ticket Source', choices=STATION_CHOICES)
-    ticket_destination = forms.ChoiceField(label='Ticket Destination', choices=STATION_CHOICES)
-    ticket_type = forms.ChoiceField(label = 'Ticket Type', widget=forms.RadioSelect, choices=TICKET_TYPE_CHOICES)
-    ticket_class = forms.ChoiceField(label = 'Ticket Class', widget=forms.RadioSelect, choices=TICKET_CLASS_TYPE_CHOICES)
-    ticket_train = forms.ChoiceField(label = 'Ticket Train', widget=forms.RadioSelect, choices=TICKET_TRAIN_TYPE_CHOICES)
-    ticket_payment = forms.ChoiceField(label = 'Ticket Payment', widget=forms.RadioSelect, choices=TICKET_PAYMENT_TYPE_CHOICES)
+    ticket_source = forms.ChoiceField(label='Ticket Source', widget=forms.Select(
+        attrs={'class': 'form-control', 'id': 'yourName', 'name': 'name'}), choices=STATION_CHOICES)
+    ticket_destination = forms.ChoiceField(label='Ticket Destination', widget=forms.Select(
+        attrs={'class': 'form-control', 'id': 'yourName', 'name': 'name'}), choices=STATION_CHOICES)
+    ticket_type = forms.ChoiceField(
+        label='Ticket Type', widget=forms.RadioSelect(attrs={
+            'class': 'form-check-input',
+            'id': 'tickettype1',
+            'name': 'inlineRadioOptions1'
+        }), choices=TICKET_TYPE_CHOICES)
+    ticket_class = forms.ChoiceField(
+        label='Ticket Class', widget=forms.RadioSelect(attrs={
+            'class': 'form-check-input',
+            'id': 'tickettype1',
+            'name': 'inlineRadioOptions1'
+        }), choices=TICKET_CLASS_TYPE_CHOICES)
+    ticket_train = forms.ChoiceField(
+        label='Ticket Train', widget=forms.RadioSelect(attrs={
+            'class': 'form-check-input',
+            'id': 'tickettype1',
+            'name': 'inlineRadioOptions1'
+        }), choices=TICKET_TRAIN_TYPE_CHOICES)
+    ticket_payment = forms.ChoiceField(
+        label='Ticket Payment', widget=forms.RadioSelect(attrs={
+            'class': 'form-check-input',
+            'id': 'tickettype1',
+            'name': 'inlineRadioOptions1'
+        }), choices=TICKET_PAYMENT_TYPE_CHOICES)
+
     class Meta:
         model = Ticket
         fields = [
             'ticket_source', 'ticket_destination', 'ticket_type', 'ticket_class', 'ticket_train', 'ticket_payment'
         ]
-        widgets = {
-            
-            'ticket_source': forms.Select(
-                attrs={
-                    'class': 'bootstrap-select',
-                    'id': 'yourName',
-                    'name': 'name'
-                }
-            ),
-            
-            'ticket_destination': forms.Select(
-                attrs={
-                    'class': 'form-check-input',
-                    'id': 'tickettype1',
-                    'name': 'inlineRadioOptions1'
-                }
-            ),
-            'ticket_type': forms.RadioSelect(
-                attrs={
-                    'class': 'form-check-input',
-                    'id': 'tickettype1',
-                    'name': 'inlineRadioOptions1'
-                }
-            ),
-            'ticket_class': forms.RadioSelect(
-                attrs={
-                    'class': 'form-check-input',
-                }
-            ),
-            'ticket_train': forms.RadioSelect(
-                attrs={
-                    'class': 'form-check-input',
-                }
-            ),
-            'ticket_payment': forms.RadioSelect(
-                attrs={
-                    'class': 'form-check-input',
-                }
-            ),
-        }
         
+
+class CheckFareForm(forms.Form):
+    ticket_source = forms.ChoiceField(label='Ticket Source', widget=forms.Select(
+        attrs={'class': 'form-control', 'id': 'yourName', 'name': 'name'}), choices=STATION_CHOICES)
+    ticket_destination = forms.ChoiceField(label='Ticket Destination', widget=forms.Select(
+        attrs={'class': 'form-control', 'id': 'yourName', 'name': 'name'}), choices=STATION_CHOICES)
+
+    class Meta:
+        fields = ['ticket_source', 'ticket_destination']

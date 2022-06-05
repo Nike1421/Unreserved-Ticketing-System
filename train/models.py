@@ -39,8 +39,8 @@ STATION_CHOICES = (
 )
 
 TICKET_TYPE_CHOICES = (
-    ("Journey", "Journey"),
-    ("Single", "Single")
+    ("Single", "Single"),
+    ("Return", "Return")
 )
 
 TICKET_CLASS_TYPE_CHOICES = (
@@ -49,8 +49,8 @@ TICKET_CLASS_TYPE_CHOICES = (
 )
 
 TICKET_TRAIN_TYPE_CHOICES = (
-    ("Ordinary", "Ordinary"),
-    ("Air Conditioned", "Air Conditioned")
+    ("ORD", "Ordinary"),
+    ("AC", "Air Conditioned")
 )
 
 TICKET_PAYMENT_TYPE_CHOICES = (
@@ -87,10 +87,10 @@ class MyAccountManager(BaseUserManager):
         return user
 
 class Account(AbstractBaseUser):
-    name                    = models.CharField(verbose_name='name', max_length=100)
-    username                = models.CharField(verbose_name = 'phone_no', max_length=30, unique=True)
-    date_joined				= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
-    last_login				= models.DateTimeField(verbose_name='last login', auto_now=True)
+    name                    = models.CharField(verbose_name='Name', max_length=100)
+    username                = models.CharField(verbose_name = 'Phone Number', max_length=30, unique=True)
+    date_joined				= models.DateTimeField(verbose_name='Date Joined', auto_now_add=True)
+    last_login				= models.DateTimeField(verbose_name='Last Login', auto_now=True)
     city                    = models.CharField(verbose_name='City', max_length=20, null=True)
     address                 = models.TextField(verbose_name="Address", max_length=200, null=True)
     email                   = models.EmailField(verbose_name='Email', max_length=30, null = True)
@@ -130,3 +130,6 @@ class Ticket(models.Model):
     ticket_booked_at        = models.DateTimeField(verbose_name='Ticket Booked at', auto_now_add=True)
     ticket_fare             = models.SmallIntegerField(verbose_name='Ticket Fare', null=False, default=0)
     ticket_user             = models.ForeignKey(Account, verbose_name='Ticket Holder', related_name="Ticket_Holder", null=False, default=None, on_delete=models.DO_NOTHING)
+
+    # def __str__(self) -> str:
+    #     return self.ticket_id

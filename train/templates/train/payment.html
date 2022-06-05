@@ -1,47 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'train/base2.html'%}
+{% load static %}
+{% block heading %}
+<link href="{% static 'assets/css/payment.css' %}" rel="stylesheet">
+{% endblock %}
 
-<head>
-  {% load static %}
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>UTS - Mobile Ticketing</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-  
-
-  <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/payment.css' %}" rel="stylesheet">
-</head>
-
-<body>
-
+{% block content %}
+<main id="" class="main ml-0">
     <div class="container py-5">
         <!-- For demo purpose -->
         <div class="row mb-4">
@@ -56,24 +20,34 @@
                         <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
                             <!-- Credit card form tabs -->
                             <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
-                                <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Credit/Debit Card </a> </li>
-                                <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fa-brands fa-google-pay mr-2"></i> Google Pay </a> </li>
-                                <li class="nav-item"> <a data-toggle="pill" href="#net-banking" class="nav-link "> <i class="fas fa-mobile-alt mr-2"></i> Net Banking </a> </li>
+                                <li class="nav-item"> <a data-toggle="pill" href="#credit-card"
+                                        class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Credit/Debit
+                                        Card </a> </li>
+                                <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i
+                                            class="fa-brands fa-google-pay mr-2"></i> Google Pay </a> </li>
+                                <li class="nav-item"> <a data-toggle="pill" href="#net-banking" class="nav-link "> <i
+                                            class="fas fa-mobile-alt mr-2"></i> Net Banking </a> </li>
                             </ul>
                         </div> <!-- End -->
                         <!-- Credit card form content -->
                         <div class="tab-content">
                             <!-- credit card info-->
                             <div id="credit-card" class="tab-pane fade show active pt-3">
-                                <form role="form" onsubmit="event.preventDefault()">
+                                <form role="form" onsubmit="event.preventDefault()" method="post">
+                                    {% csrf_token %}
                                     <div class="form-group"> <label for="username">
                                             <h6>Card Owner</h6>
-                                        </label> <input type="text" name="username" placeholder="Card Owner Name" required class="form-control "> </div>
+                                        </label> <input type="text" name="username" placeholder="Card Owner Name"
+                                            required class="form-control "> </div>
                                     <div class="form-group"> <label for="cardNumber">
                                             <h6>Card number</h6>
                                         </label>
-                                        <div class="input-group"> <input type="text" name="cardNumber" placeholder="Valid card number" class="form-control " required>
-                                            <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                        <div class="input-group"> <input type="text" name="cardNumber"
+                                                placeholder="Valid card number" class="form-control " required>
+                                            <div class="input-group-append"> <span class="input-group-text text-muted">
+                                                    <i class="fab fa-cc-visa mx-1"></i> <i
+                                                        class="fab fa-cc-mastercard mx-1"></i> <i
+                                                        class="fab fa-cc-amex mx-1"></i> </span> </div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -81,17 +55,20 @@
                                             <div class="form-group"> <label><span class="hidden-xs">
                                                         <h6>Expiration Date</h6>
                                                     </span></label>
-                                                <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required> <input type="number" placeholder="YY" name="" class="form-control" required> </div>
+                                                <div class="input-group"> <input type="number" placeholder="MM" name=""
+                                                        class="form-control" required> <input type="number"
+                                                        placeholder="YY" name="" class="form-control" required> </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                            <div class="form-group mb-4"> <label data-toggle="tooltip"
+                                                    title="Three digit CV code on the back of your card">
                                                     <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
                                                 </label> <input type="text" required class="form-control"> </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
-                                </form>
+                                    <div class="card-footer"> <a href = "{% url 'ticket' %}"><button type="button"
+                                        class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button></a>
                             </div>
                         </div> <!-- End -->
                         <!-- Paypal info -->
@@ -100,51 +77,49 @@
                             <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Domestic </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">International </label></div>
                             <p> <button type="button" class="btn btn-primary "><i class="fab fa-paypal mr-2"></i> Log into my Paypal</button> </p>
                             <p class="text-muted"> Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p> -->
-                            <form role="form">
+                            <form role="form" method="POST">
+                                {% csrf_token %}
                                 <div class="form-group"> <label for="username">
-                                    <h6>Enter your UPI ID</h6>
-                                </label> <input type="text" name="username" placeholder="UPI ID" required class="form-control "> </div>
-                                <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button> </div>
+                                        <h6>Enter your UPI ID</h6>
+                                    </label> <input type="text" name="username" placeholder="UPI ID" required
+                                        class="form-control "> </div>
+                                <div class="card-footer"> <a href = "{% url 'ticket' %}"><button type="button"
+                                        class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button></a>
+                                </div>
                             </form>
                         </div> <!-- End -->
                         <!-- bank transfer info -->
                         <div id="net-banking" class="tab-pane fade pt-3">
-                            <div class="form-group "> <label for="Select Your Bank">
-                                    <h6>Select your Bank</h6>
-                                </label> <select class="form-control" id="ccmonth">
-                                    <option value="" selected disabled>--Please select your Bank--</option>
-                                    <option>Kotak Mahindra Bank</option>
-                                    <option>ICICI Bank</option>
-                                    <option>Bank of Baroda</option>
-                                    <option>HDFC Bank</option>
-                                    <option>Central Bank of India</option>
-                                    <option>State Bank of India</option>
-                                    <option>Axis Bank</option>
-                                    <option>Other</option>
-                                </select> </div>
+                            <form class="form-group " method="post"> 
+                                {% csrf_token %}
+                                <label for="Select Your Bank"><h6>Select your Bank</h6></label> 
+                                    <select class="form-control" id="ccmonth">
+                                        <option value="" selected disabled>--Please select your Bank--</option>
+                                        <option>Kotak Mahindra Bank</option>
+                                        <option>ICICI Bank</option>
+                                        <option>Bank of Baroda</option>
+                                        <option>HDFC Bank</option>
+                                        <option>Central Bank of India</option>
+                                        <option>State Bank of India</option>
+                                        <option>Axis Bank</option>
+                                        <option>Other</option>
+                                    </select>
+                                    <div class="card-footer"> <a href = "{% url 'ticket' %}"><button type="button"
+                                        class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button></a>
+                                </div>
+  
+                                </form>
                             <div class="form-group">
-                                <p> <button type="button" class="btn btn-primary "><i class="fas fa-mobile-alt mr-2"></i> Proceed Payment</button> </p>
+                                
                             </div>
-                            <p class="text-muted">Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
+                            <p class="text-muted">Note: After clicking on the button, you will be directed to a secure
+                                gateway for payment. After completing the payment process, you will be redirected back
+                                to the website to view details of your order. </p>
                         </div> <!-- End -->
                         <!-- End -->
                     </div>
                 </div>
             </div>
         </div>
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/chart.js/chart.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/echarts/echarts.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/quill/quill.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
-  <script src="{% static 'assets/vendor/tinymce/tinymce.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static 'assets/js/payment.js' %}"></script>
-
-</body>
-
-</html>
+</main>
+{% endblock %}
