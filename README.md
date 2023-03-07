@@ -1,5 +1,5 @@
 # Unreserved Ticketing System (UTS)
-Unreserved Ticketing System, or UTS for short, is a web-based application to book tickets for the Mumbai Suburban Railway. It is a web-based alternative to the [UTSOnMobile](https://play.google.com/store/apps/details?id=com.cris.utsmobile) App which is available for Android and iOS smartphones. UTS was developed to fulfil a Mini-Project requirement for the Software Engineering course as a part of the Third Year B. Tech. (Information Technology) curriculum.
+Unreserved Ticketing System, or UTS for short, is a web-based application to book tickets for the Mumbai Suburban Railway. It is a web-based alternative to the [UTSOnMobile](https://web.umang.gov.in/landing/department/unreserved-ticketing-system-uts.html) App which is available for Android and iOS smartphones. UTS was developed to fulfil a Mini-Project requirement for the Software Engineering course as a part of the Third Year B. Tech. (Information Technology) curriculum.
 
 ## <u>**Project Details**</u>
 **Project Title**: Unreserved Ticketing System\
